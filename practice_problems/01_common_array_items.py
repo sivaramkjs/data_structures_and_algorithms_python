@@ -7,7 +7,7 @@
 #
 # `return false`
 #
-#  **Example 2:**
+# Example 2:
 #
 # `arr1 = ['a', 'b', 'c', 'x']`
 #
@@ -17,13 +17,15 @@
 
 from time import perf_counter
 
+
 def contain_common_items_brute_force(arr1, arr2):
     for item1 in arr1:
-     for item2 in arr2:
-        if item1 == item2:
-            return True
+        for item2 in arr2:
+            if item1 == item2:
+                return True
 
     return False
+
 
 def contain_common_items(arr1, arr2):
     arr1_to_hash_set = set(arr1)
@@ -34,14 +36,15 @@ def contain_common_items(arr1, arr2):
 
     return False
 
+
 start = perf_counter()
 print(contain_common_items_brute_force(['a', 'b', 'c', 'x'], ['y', 'z', 'i']))
 end = perf_counter()
-print(f'Took {end-start:.7f} secs')
+print(f'Took {end - start:.7f} secs')
 
 start1 = perf_counter()
 print(contain_common_items(['a', 'b', 'c', 'x'], ['y', 'z', 'x']))
 end1 = perf_counter()
-print(f'Took {end1-start1:.7f} secs')
+print(f'Took {end1 - start1:.7f} secs')
 
 # print(contain_common_items([1, 2, 3], ['y', 'z', 'i']))

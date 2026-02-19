@@ -26,19 +26,19 @@ from time import perf_counter
 
 # Brute-force approach:
 # 1. We can use two for loops and try to find a pair adds up to sum and return true if found else false
-# 2. Time Complexity: O(n^2)
+# Time Complexity: O(n^2)
 
 # Optimized approach 1:
 # 1. Since it's sorted, we can iterate through each item and find the required number for the sum using the binary search
-# 2. Time Complexity: O(nlogn)
+# Time Complexity: O(n log n)
 
 # Optimized approach 2:
 # 1. Since it's sorted, the smallest number will be the first item and largest number will be the last item.
 # 2. We can use a two pointer approach: "low" as smallest number index and "high" as highest number index
 # 3. Add the two numbers.
 #   1. If the added value is greater than the sum then we need to look for lower number than the current "high" to pair with the current "low" to check if it equals to sum. Hence, decrement the "high" by 1
-#   2. If the added value is less than the sum then we need to look for higher number than the current "low" to pair with the current "high" to check if it equals to sum. Hence,  increment the "low" by 1
-# 4. Time Complexity: O(n)
+#   2. If the added value is less than the sum then we need to look for higher number than the current "low" to pair with the current "high" to check if it equals to sum. Hence, increment the "low" by 1
+# Time Complexity: O(n)
 
 def find_pair_equal_to_sum_brute_force(sorted_arr, target_sum):
     for i, num1 in enumerate(sorted_arr):
@@ -56,7 +56,7 @@ def find_pair_equal_to_sum_brute_force(sorted_arr, target_sum):
 def find_pair_equal_to_sum(sorted_arr, target_sum):
     low, high = 0, len(sorted_arr) - 1
 
-    for _ in range(len(sorted_arr) - 1):
+    while low < high:  # We can also use `for _ in range(len(sorted_arr) - 1):`
         current_sum = sorted_arr[low] + sorted_arr[high]
         if current_sum == target_sum:
             return True
@@ -73,13 +73,13 @@ def find_pair_equal_to_sum(sorted_arr, target_sum):
 
 
 # Extension question 1: What if the array is not sorted?
-# 1. We can sort the array and still use the above final solution. Time Complexity: O(nlogn)
+# 1. We can sort the array and still use the above final solution. Time Complexity: O(n log n)
 # 2. Can we do better?
 #   1. We can check the difference between the current number and target sum.
-#   2. Use a lookup data structure (DS) to find the difference number. If not found then save the current number in the lookup and use it later with the matching pair
-#   3. For this purpose, we will need an efficient DS with faster lookup time. I think we can use hash set like DS which has O(1) lookup speed. In Python, it would be "set"
-#   4. Time Complexity: O(n)
-#   5. We can also use an alternate solution by directly adding the difference value into the lookup. With this, we can directly check the current number exists in the lookup instead of computing the difference and check the difference number every time.
+#   2. Use an efficient lookup data structure (DS) to find the difference number. If not found then save the current number in the lookup and use it later with the matching pair.
+#   3. For this purpose, we will need an efficient DS with faster lookup time. I think we can use hash set which has O(1) lookup speed. In Python, it would be "set".
+# 3. We can also use an alternate solution by directly adding the difference value into the lookup. With this, we can directly check the current number exists in the lookup instead of computing the difference and check the difference number every time.
+# Time Complexity: O(n)
 
 def find_unsorted_pair_equal_to_sum(arr, target_sum):
     visited_nums = set()
