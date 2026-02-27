@@ -46,14 +46,15 @@ class MyDoublyLinkedList:
             self.length += 1
 
     def remove(self, index):  # O(n)
-        if index == 0:  # Before removing current head, set new head to the current head's next and new head's prev to None
-            current_head = self.head
-            self.head = current_head.next
+        if index == 0:
+            # Before removing current head, set new head to the current head's next and new head's prev to None
+            self.head = self.head.next
             self.head.prev = None
+        elif index >= self.length - 1:  # pop
+            # Before removing current tail, set new tail to the current tail's prev and new tail's prev to None
+            self.tail = self.tail.prev
+            self.tail.next = None
         else:
-            if index >= self.length:
-                index = self.length - 1  # pop
-
             previous_node_of_removing_node = self.find_node(index - 1)
             node_to_remove = previous_node_of_removing_node.next
             next_node_of_removing_node = node_to_remove.next
@@ -61,12 +62,8 @@ class MyDoublyLinkedList:
             # Set previous node's next to the removing node's next
             previous_node_of_removing_node.next = next_node_of_removing_node
 
-            # If removing node's next node is a valid node i.e., not the current tail then set its prev to the removing node's previous node
-            if next_node_of_removing_node is not None:
-                next_node_of_removing_node.prev = node_to_remove.prev
-
-            if index == self.length - 1:  # Set tail to the new last node in case of pop
-                self.tail = previous_node_of_removing_node
+            # Set next node's prev to the removing node's prev
+            next_node_of_removing_node.prev = previous_node_of_removing_node
 
         self.length -= 1
 

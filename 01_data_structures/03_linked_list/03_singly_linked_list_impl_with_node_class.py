@@ -69,6 +69,18 @@ class MyLinkedList:
             yield current_node.value
             current_node = current_node.next
 
+    def reverse(self):
+        prev_node = None
+        current_node = self.head
+        if not current_node.next:  # If there is only one element just return as we don't need to process anything
+            return
+        while current_node:
+            next_node = current_node.next  # store the current node's original next
+            current_node.next = prev_node  # set the current node's next to the prev node i.e., reversing
+            prev_node = current_node  # move prev node to current node
+            current_node = next_node  # move current node to next node
+        self.head, self.tail = self.tail, self.head
+
     def __str__(self):
         return str(list(self.values()))
 
@@ -98,4 +110,7 @@ print(linked_list)
 linked_list.remove(20)
 print(linked_list)
 linked_list.remove(linked_list.length)
+print(linked_list)
+
+linked_list.reverse()
 print(linked_list)
