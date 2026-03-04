@@ -47,7 +47,7 @@ class MySearchBinaryTree:
         return None
 
     def remove(self, value):
-        # 1. If node_to_remove is a leaf node then remove it.
+        # 1. If node_to_remove is a leaf node then remove it by detaching it from its parent.
         # 2. If node_to_remove has only one child then replace it with its only child node, which will preserve the BST value ordering.
         # 3. If node_to_remove has two children then find the successor node and replace with it.
         node_to_remove, parent_node, is_left_child = self.find_node_and_parent_and_position(value)
@@ -58,7 +58,7 @@ class MySearchBinaryTree:
             self.replace_node(parent_node, is_left_child, None)
 
         elif node_to_remove.left and node_to_remove.right:
-            successor_node = self.find_and_detach_successor_node(node_to_remove)
+            successor_node = self.find_and_detach_and_get_successor_node(node_to_remove)
             successor_node.left = node_to_remove.left
             successor_node.right = node_to_remove.right
             self.replace_node(parent_node, is_left_child, successor_node)
@@ -103,8 +103,8 @@ class MySearchBinaryTree:
         return None
 
     @staticmethod
-    def find_and_detach_successor_node(node_to_remove):
-        # 1. Check if node_to_remove has a right child, as we will choose successor as the "lowest left child" in the node_to_remove's right child's subtree.
+    def find_and_detach_and_get_successor_node(node_to_remove):
+        # 1. Check if node_to_remove has a right child, and choose successor as the "lowest left child" in the node_to_remove's right child's subtree.
         #   1. If so then check if the right child has a left child.
         #       1. If so then choose the lowest left child in the left subtree as successor by traversing to the leaf node.
         #       2. Detach the successor node from its current parent node.

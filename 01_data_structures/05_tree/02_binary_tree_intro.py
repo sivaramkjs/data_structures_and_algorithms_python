@@ -5,6 +5,9 @@
 # Full binary tree:
 #    A binary tree with each node having either 0 or 2 child nodes (no node with exactly 1 child).
 #
+# Complete binary tree:
+#   A binary tree where all level are completely filled except the last level, which are filled from as left as possible.
+#
 # Perfect binary tree:
 #   1. A full binary tree with all leaf nodes are at same depth (level), so completely filled at every level.
 #   2. It has two properties:
@@ -73,3 +76,8 @@
 # lookup: O(log n) vs O(1)
 # insert/remove: O(log n) vs O(1)
 # Hash map doesn't have hierarchical structure. E.g., parent/child, file system
+
+
+# Self-balancing BST types:
+# 1. AVL tree
+# 2. RED-BLACK tree

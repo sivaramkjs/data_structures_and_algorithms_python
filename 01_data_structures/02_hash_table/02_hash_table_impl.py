@@ -12,7 +12,7 @@ class MyHashTable:
 
     def insert(self, key, val):  # O(1)
         key_hash = self.__hash_func(key)
-        print(self.data)
+        # print(self.data)
         self.data[key_hash].append([key, val])
         print(self.data)
 
