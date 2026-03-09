@@ -35,7 +35,7 @@ from time import perf_counter
 # Optimized approach 2:
 # 1. Python slice operation is highly optimized in case of CPython which uses a new string buffer to copy all characters in reverse in one operation.
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Space Complexity: O(n)
 
 
 def reverse_string_brute_force(s):

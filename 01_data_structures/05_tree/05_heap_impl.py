@@ -31,7 +31,7 @@ class MyHeap:
         #   1. If "right child index < heap_size" and "node[largest] < right" then set largest to right child node index.
         # 5. Compare largest is the current node index (i).
         #   1. If they are equal then end the loop as we don't need to heapify the child subtrees.
-        #       1. This works properly since when the current node is already greater than its child nodes then we can assume that the child subtrees are already valid heaps. This is due to the fact how we build the heap bottom up from the last non-leaf node.
+        #       1. This works properly as when the current node is already greater than its child nodes then we can assume that the child subtrees are already valid heaps. This is due to the fact how we build the heap bottom up from the last non-leaf node.
         #   2. Else swap current node with the child node at the largest index.
         # 6. Set i = largest.
         # 7. Repeat steps 3 to 6.
@@ -90,7 +90,6 @@ class MyHeap:
         max_val = data[0]
         data[0] = data[len(data) - 1]
         data.pop()
-
         MyHeap.__max_heapify(data, 0)
         return max_val
 
