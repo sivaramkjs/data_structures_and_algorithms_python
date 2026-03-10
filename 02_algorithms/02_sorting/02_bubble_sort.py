@@ -1,10 +1,8 @@
-# Sorts by bubbling up the largest value in iterations.
+# Sorts by bubbling up the "largest value" in iterations.
 # One of the simplest sorting algorithm but also one of the least efficient.
+
 # Time Complexity: O(n^2)
 # Space Complexity: O(1) [in-place sort, no extra storage]
-import random
-from Utils.check_perf import check_performance
-
 
 # Algorithm 1:
 #   1. Loop through the length of the input array as we will need to sort all elements.
@@ -46,6 +44,9 @@ def bubble_sort_while_loop(a):
         first, second = 0, 1
         sorted_until_index -= 1
 
+
+import random
+from Utils.check_perf import check_performance
 
 # s = [6, 5, 3, 1, 8, 7, 2, 4]
 s = [random.randrange(1, 1000000) for _ in range(10000)]
