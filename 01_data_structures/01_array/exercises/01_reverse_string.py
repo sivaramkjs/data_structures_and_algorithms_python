@@ -20,7 +20,7 @@ from time import perf_counter
 # Brute-force approach:
 # 1. Loop through all characters from end index, and create a new string by appending each character. However, since strings are immutable in python, this leads to O(n^2) time complexity as each iteration creates a completely new string.
 # Time Complexity: O(n^2)
-# Space Complexity: O(n^2)
+# Space Complexity: O(1) (excluding output)
 
 # Better than brute-force:
 # 1. We can optimize by creating a list object from given string and swapping the characters at the opposite indices from the start to end in the list.
@@ -33,9 +33,9 @@ from time import perf_counter
 # Space Complexity: O(n)
 
 # Optimized approach 2:
-# 1. Python slice operation is highly optimized in case of CPython which uses a new string buffer to copy all characters in reverse in one operation.
+# 1. Python slice operation is highly optimized in case of CPython, which uses a new string buffer to copy all characters in reverse in one operation.
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Space Complexity: O(1) (excluding output)
 
 
 def reverse_string_brute_force(s):

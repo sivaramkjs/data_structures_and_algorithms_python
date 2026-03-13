@@ -3,7 +3,7 @@
 # Compares each element in the unsorted subarray with the elements in the sorted subarray from right to left, and inserts the unsorted element into the appropriate position in the sorted subarray.
 # This works well with small or nearly sorted arrays.
 
-# Time Complexity: O(n^2)
+# Time Complexity: O(n^2) [can be O(n) in case of small or nearly sorted inputs]
 # Space Complexity: O(1) [in-place sort, no extra storage]
 
 # Algorithm:
@@ -15,11 +15,11 @@
 #           1. Find the appropriate sorted position for a[i] within the sorted subarray.
 #               1. Compare a[i] and a[j].
 #               2. If a[i] < a[j] then update insertion_index = j.
-#               3. If a[i] > a[j] then end the loop as we don't need to compare further.
-#           2. Repeat steps 3.2.1-3.2.2 until the loop ends.
+#               3. If a[i] >= a[j] then end the loop as we don't need to compare further.
+#           2. Repeat steps 3.2.1 until the loop ends.
 #       3. Shift all larger elements to one position right from the insertion index and insert a[i] at the insertion index.
 #       4. Increment sorted_until_index by 1.
-#       5. Repeat steps 3.1-3.5 until the loop ends.
+#       5. Repeat steps 3.1-3.4 until the loop ends.
 
 
 def insertion_sort(a: list):
@@ -29,7 +29,7 @@ def insertion_sort(a: list):
         for j in range(sorted_until_index, -1, -1):
             if a[i] < a[j]:
                 insertion_index = j
-            elif a[i] > a[j]:
+            elif a[i] >= a[j]:
                 break
         if insertion_index != i:  # This check can be optional as it just avoids additional method invocation overhead
             shift_elements(a, insertion_index, i)

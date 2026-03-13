@@ -6,3 +6,4 @@ def check_performance(func, *inputs):
     val = func(*inputs)
     end = perf_counter()
     print(f'Took {end - start:.4f} seconds')
+    return val

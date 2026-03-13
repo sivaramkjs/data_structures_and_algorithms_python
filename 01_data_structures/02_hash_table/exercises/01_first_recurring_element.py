@@ -64,7 +64,7 @@ print(find_first_recurring_element_brute_force([2, 5, 5, 2, 3, 5, 1, 2, 4]))
 # 2. Loop through each element.
 # 3. Check if the current element already present in hash set.
 # 4. If present then we found the first recurrence, return the current element else add the element into set.
-# 5. Repeat steps 2-5
+# 5. Repeat steps 2-4
 # Time Complexity: O(n)
 # Space Complexity: O(n)
 
