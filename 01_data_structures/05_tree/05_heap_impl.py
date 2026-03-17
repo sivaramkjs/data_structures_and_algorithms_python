@@ -3,7 +3,7 @@ import heapq
 
 class MyHeap:
     @staticmethod
-    def build_max_heap(data: list):
+    def build_max_heap(data: list):  # O(n log n)
         # 1. Start from last non-leaf node and fix max heap property until the root node.
         # 2. In any complete binary tree represented with a 0-based index list/array, for any node at index "i", the left and right children will be at the following indices.
         #   1. left child - 2i+1
@@ -57,7 +57,7 @@ class MyHeap:
             i = largest_index
 
     @staticmethod
-    def max_heap_insert(data, value):
+    def max_heap_insert(data, value):  # O(log n)
         # 1. Set new node index to the current largest index + 1 (= len(data), for a 0-based index list/array) before adding the new node.
         # 2. Add the new value into the list.
         # 3. Compute the parent node index of the new node.
@@ -83,7 +83,7 @@ class MyHeap:
             parent_node_index = compute_parent_node_index(current_node_index)
 
     @staticmethod
-    def extract_max(data):
+    def extract_max(data):  # O(log n)
         # 1. Get the max value from the root node at the first index.
         # 2. Replace the root node with the last leaf node from the last index.
         # 3. Fix the heap property from the new root (bubbling down).

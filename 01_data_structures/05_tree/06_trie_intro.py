@@ -15,4 +15,5 @@
 #                 S
 
 # Time Complexity: O(length of word)
-# Space Complexity: Since we use prefixes (e.g., each alphabet child), we don't need to store same letter multiple times.
+# Space Complexity: Since we use prefixes (e.g., each alphabet node), we don't need to store same letter multiple times in a subtree
+#                   (e.g., 'N' in NEWS and NOT).

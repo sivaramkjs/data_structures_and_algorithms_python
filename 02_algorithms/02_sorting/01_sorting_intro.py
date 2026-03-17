@@ -23,3 +23,22 @@
 #   2. Basically, an unstable sorting algorithm doesn't guarantee the same input order of equal keys in the output.
 #   3. Stable sorting algorithms: IBM [Insertion, Bubble, Merge], etc.
 #   4. Unstable sorting algorithms: Heap, Selection, Quick, etc.
+
+# Which sorting algorithm is best?
+#   Bubble/Selection sort - We almost never use these except for academic purposes due to their high time complexity.
+#   Insertion sort - Small input and mostly sorted data.
+#   Merge sort - One of the most used due ot its consistent time complexity in all cases.
+#   Quick sort - Fastest and preferred except in its worst case scenario. Used over merge sort when there are space
+#                constraints. However, if the pivot is not properly selected then it would result in poor performance.
+#   Heap sort - Used over merge/quick sort when there is a strict memory constraint. Generally slower than merge/quick sort.
+
+# Can we beat O(n log n) time complexity with any sorting algorithms?
+#   While mathematically it would be impossible, we can optimize by skipping comparisons. This is called "Non-comparison based sort".
+#
+# Non-comparison based sort algorithms:
+#       1. Counting sort
+#       2. Radix sort
+#       3. Bucket sort
+#   - These actually use either binary or other structural representation (digits, ranges, buckets) of the element to sort them.
+#     However, due to the nature of such sorting mechanisms, these work only with a fixed-length range of integers data.
+#   - In those limited data cases, they could outperform comparison sort algorithms like merge/quick sort.
