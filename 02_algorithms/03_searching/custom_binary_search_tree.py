@@ -1,4 +1,3 @@
-import json
 from typing import Optional
 from tree_node import TreeNode
 from dataclasses_json import dataclass_json
@@ -7,7 +6,7 @@ from dataclasses import dataclass
 
 @dataclass_json
 @dataclass
-class MyBinarySearchTree:
+class CustomBinarySearchTree:
     count: int = 0
     root: Optional[TreeNode] = None
 
@@ -131,28 +130,3 @@ class MyBinarySearchTree:
         return str(self.root)
         # return self.root.to_json()
         # return json.dumps(json.loads(self.root.to_json()), indent=2)
-
-
-bst = MyBinarySearchTree()
-# bst.insert(9)
-# bst.insert(4)
-# bst.insert(6)
-# bst.insert(20)
-# bst.insert(170)
-
-bst.insert(71)
-bst.insert(74)
-bst.insert(10)
-bst.insert(85)
-bst.insert(53)
-bst.insert(36)
-bst.insert(82)
-bst.insert(84)
-
-# print(str(bst.lookup(53)))
-
-bst.remove(74)
-bst.remove(82)
-bst.remove(71)
-
-print(bst.__str__())
