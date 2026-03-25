@@ -18,7 +18,7 @@
 #         /  \
 #       2     5
 #     Get all nodes greater than 33 will just need traversing until 33 node. Imagine the same operation using a BST, where we need to traverse entire right subtree of 33 node.
-#   6. Memory heap and heap data structure are not same.
+#   6. Memory heap (used to store program data) and heap data structure are not same.
 #   7. Since it is left to right node insertion, heap doesn't need rebalancing like in BST.
 
 # Pros:

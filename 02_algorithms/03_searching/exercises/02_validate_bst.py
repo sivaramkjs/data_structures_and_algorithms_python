@@ -107,7 +107,7 @@ def validate_bst_dfs_min_max(node, current_min=float('-inf'), current_max=float(
 #   1. Start with the root node.
 #   2. Use DFS inorder traversal to traverse all elements in the ascending sorted order from left to node to right.
 #   3. Initialize node = root, prev_node_val = []
-#   4. If the current node is not valid then return true as we would have reached the null node or null child of a leaf node,
+#   4. If the current node is not valid then return true as we would have reached the null node (null child of a leaf node),
 #      and it doesn't affect/violate the BST ordering.
 #   5. Perform an inorder traversal,
 #       1. Traverse from root to the left-most leaf node recursively.

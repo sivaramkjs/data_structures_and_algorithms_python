@@ -1,5 +1,5 @@
 from typing import Optional
-from tree_node import TreeNode
+from CustomDataStructures.tree_node import TreeNode
 from dataclasses_json import dataclass_json
 from dataclasses import dataclass
 

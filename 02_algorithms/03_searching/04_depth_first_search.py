@@ -39,7 +39,7 @@
 #
 #     dfs_postorder = [1, 6, 4, 15, 170, 20, 9]
 
-from custom_binary_search_tree import CustomBinarySearchTree
+from CustomDataStructures.custom_binary_search_tree import CustomBinarySearchTree
 
 bst = CustomBinarySearchTree()
 bst.insert(9)

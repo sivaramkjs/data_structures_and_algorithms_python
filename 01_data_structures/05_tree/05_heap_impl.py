@@ -3,7 +3,7 @@ import heapq
 
 class MyHeap:
     @staticmethod
-    def build_max_heap(data: list):  # O(n log n)
+    def build_max_heap(data: list):
         # 1. Start from last non-leaf node and fix max heap property until the root node.
         # 2. In any complete binary tree represented with a 0-based index list/array, for any node at index "i", the left and right children will be at the following indices.
         #   1. left child - 2i+1
@@ -11,6 +11,10 @@ class MyHeap:
         # 3. If the binary tree array length is "n" then the last non-leaf node must be at "(n-1)/2" since
         #   1. For any node, if its left child index 2i+1 > n then the node must be a leaf node since there are no children.
         #   2. Hence, the largest valid index i for which 2i+1 <= n --> i <= (n-1)/2.
+        #
+        # Time Complexity:
+        #  It would be O(n log n). However, most nodes are near the bottom of the heap and barely need to move. Hence,
+        #  it would eventually converge to O(n).
 
         last_non_leaf_node_index = (len(data) - 1) // 2
         for i in range(last_non_leaf_node_index, -1, -1):
@@ -68,7 +72,7 @@ class MyHeap:
         # 7. Swap parent node with current node.
         # 8. Set current index = parent node index.
         # 9. Compute the parent node index of the current index.
-        # 10. Repeat steps 6- 7
+        # 10. Repeat steps 6-7
 
         new_node_index = len(data)
         data.append(value)

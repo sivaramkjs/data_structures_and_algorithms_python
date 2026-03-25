@@ -31,7 +31,7 @@
 #       3. Max heapify from the new root node.
 #       4. Repeat steps 3.1 - 3.4 until the loop ends.
 
-from custom_heap import CustomHeap
+from CustomDataStructures.custom_heap import CustomHeap
 
 
 def heap_sort(a):

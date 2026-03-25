@@ -1,5 +1,5 @@
 from collections import deque
-from custom_binary_search_tree import CustomBinarySearchTree
+from CustomDataStructures.custom_binary_search_tree import CustomBinarySearchTree
 
 
 # Algorithm:
