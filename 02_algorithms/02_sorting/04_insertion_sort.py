@@ -38,7 +38,7 @@ def insertion_sort(a: list):
 
 def shift_elements(a, insertion_index, end_index):
     # Interesting fact: Although, this would shift more elements during both insert and pop operations, this would be consistently faster
-    #   than the below "shift_elements_manual" function due to under the hood Python list optimizations.
+    #   than the below "shift_elements_manual" function due to under the hood Python list type optimizations.
     a.insert(insertion_index, a.pop(end_index))
 
 

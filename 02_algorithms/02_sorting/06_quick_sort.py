@@ -16,6 +16,10 @@
 
 # Time Complexity: O(n log n)
 #   1. Balanced partitioning will result in a binary tree like structure with depth O(log n).
+#       1. We can view it as "how many splits (levels) are required to complete the sorting" irrespective of the work
+#          per level. Basically, any fixed splitting/partitioning will always result in a binary tree like structure.
+#          E.g., Both (1/2) split and (9/10) split will result in a binary tree like structure since they are fixed ratios
+#                although with different logarithmic depths and different bases (base 2 and base 10).
 #   2. Since each level compares almost all elements with the pivot, the work per level will be <= O(n).
 #   3. Hence, the total work = O(n) [work per level] * O(log n) [total levels] = O(n log n).
 #   4. In worst case scenario, this can be O(n^2) since the pivot may not divide input into balanced partitions. E.g., reverse sorted input list
@@ -163,7 +167,7 @@ def hoare_partition_1(a, left, right):
     pivot = a[right]
     i = left
     j = right
-    
+
     while True:
         while i < right and a[i] < pivot:  # iterate until we found a left element > pivot to swap
             i += 1

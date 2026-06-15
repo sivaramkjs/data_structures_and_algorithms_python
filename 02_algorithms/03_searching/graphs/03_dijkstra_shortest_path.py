@@ -40,20 +40,20 @@
 #
 #   Storing unvisited nodes in a binary min heap (priority queue):
 #       1. We can use min heap to always contain the next unvisited node with the lowest cost at the top.
-#       2. Total work for building the min heap = O(V)
+#       2. Total work for building the min heap = O(V) [most nodes are near the bottom of the heap and barely need to move]
 #       3. Total work for finding the next unvisited node:
 #           1. Extract top item from min heap + heapify new top = O(1) + O(log V) ≈ O(log V)
 #           2. Number of (vertices) iterations * work for finding the next unvisited node = O(V log V)
 #       4. After finding the unvisited node, we will need to visit all its neighbours and may update their costs.
 #           1. Total work for visiting all neighbours = O(number of edges overall) = O(E)
 #           2. Total work for updating each neighbour's cost:
-#               1. After updating a node's cost, we will need to heapify the min heap from the node to the top similar to
+#               1. After updating a node's cost, we will need to heapify the min heap from the node to the top, similar to
 #                  inserting a new item into the heap. This is because we will update the cost only if the new value is
 #                  less than the current value in which case the new value must be already less than the node's children
 #                  in the min heap.
 #                   1. Total work for up-heapify (sift-up) = O(log V)
 #           3. Total work for visiting all neighbours and updating each neighbour's cost = O(E * log V) = O(E log V)
-#       3. Total time complexity = O(V) + O(V log V) + O(E log V) ≈ O((V+E) log V))
+#       3. Total time complexity = O(V) + O(V log V) + O(E log V) ≈ O((V+E) log V)
 #
 #   3. We can further optimize this to "O(E + V log V)" using Fibonacci heap, but it's highly complicated to implement.
 
@@ -124,7 +124,7 @@ def find_dijkstra_shortest_path(graph: CustomWeightedGraph, source_node, target_
         # 1. Return the target_node cost when we extract it from the heap.
         # 2. At this point, it will be having the cheapest cost from source_node since it is at the top of the heap.
         #    Additionally, all other paths after the target_node will be either equal or greater than the current cost.
-        # 3. This is also due to the fact that any successive path's cost will be either
+        # 3. This is due to the fact that any successive path's cost will be either
         #    "current target_node cost + next non-negative edge cost" or
         #    "other higher unvisited path (as target_node was smallest before it) cost + next 'non-negative' edge cost"
         # 4. This works as long as there are no negative edge costs.
@@ -149,9 +149,9 @@ def find_dijkstra_shortest_path(graph: CustomWeightedGraph, source_node, target_
             cost = node_traversal_costs[current_node.value]
             return cost if cost != float('+inf') else None
 
-        for edge in current_node.adjacency_list:
-            new_traversal_cost_from_source = current_node_cost + edge.weight
-            neighbour_node = edge.to_node
+        for adjacent_item in current_node.adjacency_list:
+            new_traversal_cost_from_source = current_node_cost + adjacent_item.weight
+            neighbour_node = adjacent_item.to_node
 
             # print(neighbour_node.value, new_traversal_cost_from_source)
 
@@ -172,7 +172,7 @@ def initialize_node_traversal_costs(graph: CustomWeightedGraph, source_node):
         if value == source_node:
             costs[value] = 0
             # Since heapq doesn't allow a custom comparer function, passing tuple-list with key as 1st item,
-            # unique counter value as 2nd item to server as tie-breaker for same 1st item for multiple tuples.
+            # unique counter value as 2nd item to serve as a tie-breaker when there is same 1st item for different tuples.
             nodes.append((0, next(counter), node))
         else:
             # Initialize all nodes except source node with '+inf' cost

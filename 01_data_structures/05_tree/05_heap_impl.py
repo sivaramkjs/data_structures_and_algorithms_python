@@ -65,7 +65,10 @@ class MyHeap:
         # 1. Set new node index to the current largest index + 1 (= len(data), for a 0-based index list/array) before adding the new node.
         # 2. Add the new value into the list.
         # 3. Compute the parent node index of the new node.
-        #   1. 1st (left) child node index = (2 * parent node index) + 1 => parent node index = (child node index - 1) // 2
+        #   1. 1st (left) child node index = (2 * parent node index) + 1 =>
+        #       parent node index = (child node index - 1) // 2
+        #   2. Basically, we are using "floor((child node index - 1) / 2)" value, which will properly computes the parent node's index
+        #      irrespective of whether the new node is left child or right child.
         # 4. Fix the heap property by bubbling up from the new node to the root.
         # 5. Set current index to the new node index.
         # 6. Loop while current index > 0 (until root node) and parent node < current node.

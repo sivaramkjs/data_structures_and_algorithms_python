@@ -20,9 +20,9 @@ def bubble_sort(a):
 
 
 # Algorithm 2 (slightly faster due to the nested loop condition optimization based on previously sorted upper index position, which reduces nested loop iterations):
-#   1. (For an input array "a") Initialize three index pointers: first to 0, second to 1 and sorted_until_index = len(a)
-#   2. While sorted_until_index > 0 (if the sorted_until_index is "0" then end the loop as we already sorted until the 1st element)
-#       1. While second < sorted_until_index
+#   1. (For an input array "a") Initialize three index pointers: first to 0, second to 1 and unsorted_until_index = len(a)
+#   2. While unsorted_until_index > 0 (if the unsorted_until_index is "0" then end the loop as we already sorted until the 1st element)
+#       1. While second < unsorted_until_index
 #           1. Compare elements at a[first] and a[second] indices.
 #           2. If a[first] > a[second] then swap a[first] and a[second].
 #           3. Increment first and second by 1.
@@ -33,16 +33,16 @@ def bubble_sort(a):
 # Space Complexity: O(1)
 
 def bubble_sort_while_loop(a):
-    first, second, sorted_until_index = 0, 1, len(a)
+    first, second, unsorted_until_index = 0, 1, len(a)
 
-    while sorted_until_index > 0:
-        while second < sorted_until_index:
+    while unsorted_until_index > 0:
+        while second < unsorted_until_index:
             if a[first] > a[second]:
                 a[second], a[first] = a[first], a[second]
             first = second
             second += 1
         first, second = 0, 1
-        sorted_until_index -= 1
+        unsorted_until_index -= 1
 
 
 import random

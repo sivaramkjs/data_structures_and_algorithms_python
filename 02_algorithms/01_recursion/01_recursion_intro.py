@@ -13,10 +13,11 @@
 #       1. Base case - The case that stops further recursion.
 #       2. Recursive case - The case that continue the recursion.
 #   5. Ideally, a recursive function should follow the below steps:
-#       1. Identify a base case.
-#       2. Identify a recursive case.
-#       3. Return from base case to end the recursion.
-#       4. Return from the recursive case to exit the function.
+#       1. Identify all base cases.
+#       2. Identify all recursive cases.
+#       3. Return from base cases to end the recursion.
+#       4. Return from the recursive cases to eventually exit the function.
+#       5. All function paths (branches) must return to propagate each definitive recursive call result up the recursion stack.
 
 # Recursion Pros:
 #   1. DRY principle by not repeating logic in a loop
