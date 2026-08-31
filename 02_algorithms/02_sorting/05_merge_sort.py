@@ -18,7 +18,7 @@
 #       "n/2" merges of "2-pair" elements -> (n/2) * 2
 #       ....
 #       "2" merges of "n/2" elements -> 2 * (n/2)
-#       "1" merges of "n" elements -> 1 * n
+#       "1" merge of "n" elements -> 1 * n
 #   2. Hence, the total work for each merge is O(n).
 #
 #   Total Time Complexity = O(log n) levels * O(n) = O(n log n)

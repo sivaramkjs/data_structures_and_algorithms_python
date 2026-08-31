@@ -18,9 +18,9 @@
 #   1. Balanced partitioning will result in a binary tree like structure with depth O(log n).
 #       1. We can view it as "how many splits (levels) are required to complete the sorting" irrespective of the work
 #          per level. Basically, any fixed splitting/partitioning will always result in a binary tree like structure.
-#          E.g., Both (1/2) split and (9/10) split will result in a binary tree like structure since they are fixed ratios
+#          E.g., Both good(1/2) split and bad(9/10) split will result in a binary tree like structure since they are fixed ratios
 #                although with different logarithmic depths and different bases (base 2 and base 10).
-#   2. Since each level compares almost all elements with the pivot, the work per level will be <= O(n).
+#   2. Since each level compares at most "n" elements with the pivot, the work per level will be <= O(n).
 #   3. Hence, the total work = O(n) [work per level] * O(log n) [total levels] = O(n log n).
 #   4. In worst case scenario, this can be O(n^2) since the pivot may not divide input into balanced partitions. E.g., reverse sorted input list
 #       1. As a result, pivot selection is a critical factor for the quick sort performance.
@@ -127,7 +127,7 @@ def quick_sort_from_left(a, left, right):
 
 
 def quick_sort_hoare_partition(a, left, right):
-    if not left < right:
+    if left >= right:
         return
 
     partition_index = hoare_partition_1(a, left, right)
@@ -170,9 +170,11 @@ def hoare_partition_1(a, left, right):
 
     while True:
         while i < right and a[i] < pivot:  # iterate until we found a left element > pivot to swap
+            print(f'i: {i}, a[i]: {a[i]}')
             i += 1
 
         while j > left and a[j] > pivot:  # iterate until we found a right element < pivot to swap
+            print(f'j: {j}, a[j]: {a[j]}')
             j -= 1
 
         # return when both pointers cross each other.
@@ -201,7 +203,7 @@ from Utils.check_perf import check_performance
 s = [random.randrange(0, 100000) for _ in range(10000)]
 # s = sorted(s)
 s1 = s.copy()
-check_performance(quick_sort, s, 0, len(s1) - 1)
-check_performance(quick_sort_hoare_partition, s1, 0, len(s) - 1)
+check_performance(quick_sort, s, 0, len(s) - 1)
+check_performance(quick_sort_hoare_partition, s1, 0, len(s1) - 1)
 print(s)
 print(sorted(s1) == s)

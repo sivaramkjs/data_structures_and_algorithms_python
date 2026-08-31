@@ -27,7 +27,7 @@
 # Which sorting algorithm is best?
 #   Bubble/Selection sort - We almost never use these except for academic purposes due to their high time complexity.
 #   Insertion sort - Small input and mostly sorted data.
-#   Merge sort - One of the most used due ot its consistent time complexity in all cases.
+#   Merge sort - One of the most used due to its consistent time complexity in all cases.
 #   Quick sort - Fastest and preferred except in its worst case scenario. Used over merge sort when there are space
 #                constraints. However, if the pivot is not properly selected then it would result in poor performance.
 #   Heap sort - Used over merge/quick sort when there is a strict memory constraint. Generally slower than merge/quick sort.

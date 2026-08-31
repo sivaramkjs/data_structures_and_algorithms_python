@@ -10,7 +10,7 @@
     1. "(number of elements) * (length of each string)" ≈ O(number of elements * length of largest string)
     2. It is also good to consider the space for hash map keys as well, especially in case of string keys.
 2. Using hash map with **letter frequency key** (e.g., tuple of 26 letters) will be useful for problems based on
-   frequency of letters in a string. E.g., Group anagrams
+   frequency of letters in a string. E.g., Group anagrams, find if a string exists in another random string
 3. In case of hash map with just english letter character keys, the space complexity would be O(1) since there would be
    a maximum of 26 keys. Alternatively,we can also use array with fixed-size of 26.
 4. In case string encoding/decoding, the time complexity will be the "sum of lengths of all strings" (≈ all characters)

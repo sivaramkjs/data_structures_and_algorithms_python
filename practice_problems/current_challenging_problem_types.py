@@ -14,3 +14,4 @@
 #   5. Topological Sort
 #   6. Travelling salesman problem
 #   7. Backtracking ----- DONE
+#   8. Skip List
